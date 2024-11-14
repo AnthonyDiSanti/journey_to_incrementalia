@@ -2,6 +2,7 @@ import sys
 import numpy as np
 
 # Constants
+GC = 1
 CRB = 85
 AB = 12
 
@@ -24,10 +25,10 @@ best_a = None
 best_total = None
 
 # Perform exhaustive search
-for cr in range(0, souls):
+for cr in range(GC * 90, souls):
     for a in range((best_a or 0) + 1,
                    min(int((souls - 1 * cr) / (15 + 0.2)),
-                       int((cr * CRB) / AB + 1)):
+                       int((cr * CRB) / AB + 1))):
         best_a = a
         best_cr = cr
         best_total = 1 * cr + 15 * a + 0.2 * a
